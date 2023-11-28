@@ -1,0 +1,57 @@
+package pack.Game;
+import java.util.Random;
+import java.util.Scanner;
+
+public class ClassA 
+{
+	public void Game()
+	{
+		Random num= new Random();
+		int RandomNumber=num.nextInt(100);
+		
+		System.out.println(RandomNumber);
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int MaxAttempts= 5;
+		int attempts=0;
+		while(attempts< MaxAttempts)
+		{
+			System.out.println("Enter your Guess ");
+			int playrGuess=sc.nextInt();
+			attempts++;
+			if(RandomNumber == playrGuess)
+			{
+				System.out.println("you guess Right ");
+				System.out.println("number of attempts taken "+attempts);
+				break;
+			}
+		
+			else if(RandomNumber >playrGuess)
+			{
+				System.out.println("nope your guess is lower");
+			}
+			else
+			{
+				System.out.println("nope your guess is higher");
+			}
+			
+	
+		}
+		
+		if(MaxAttempts==attempts)
+		{
+			System.out.println("Sorry, you've used all attempts. The number was: " + RandomNumber);
+		}
+		sc.close();
+		
+	}
+	public static void main(String []args)
+	{
+		ClassA aobj=new ClassA();
+		aobj.Game();
+		
+		
+	}
+
+}
